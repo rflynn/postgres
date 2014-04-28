@@ -58,7 +58,8 @@
 
 /* Write a char field (ie, one ascii character) */
 #define WRITE_CHAR_FIELD(fldname) \
-	appendStringInfo(str, " :" CppAsString(fldname) " %c", node->fldname)
+  if (node->fldname == 0) { appendStringInfo(str, " :" CppAsString(fldname) " \\0"); \
+  } else { appendStringInfo(str, " :" CppAsString(fldname) " %c", node->fldname); }
 
 /* Write an enumerated-type field as an integer code */
 #define WRITE_ENUM_FIELD(fldname, enumtype) \
