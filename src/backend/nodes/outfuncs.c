@@ -133,7 +133,7 @@ _outToken(StringInfo str, const char *s)
 		/* These chars must be backslashed anywhere in the string */
 		if (*s == ' ' || *s == '\n' || *s == '\t' ||
 			*s == '(' || *s == ')' || *s == '{' || *s == '}' ||
-			*s == '\\')
+			*s == '\\' || *s == '"')
 			appendStringInfoChar(str, '\\');
 		appendStringInfoChar(str, *s++);
 	}
