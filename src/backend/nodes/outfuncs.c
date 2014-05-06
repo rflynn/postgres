@@ -2547,16 +2547,10 @@ _outParamRef(StringInfo str, const ParamRef *node)
 static void
 _outAConst(StringInfo str, const A_Const *node)
 {
- 	int strlen_before_value;
-
 	WRITE_NODE_TYPE("A_CONST");
 
 	appendStringInfo(str, " :val ");
-
- 	strlen_before_value = str->len;
- 	_outValue(str, &(node->val));
-
- 	appendStringInfo(str, " :length %d", str->len - strlen_before_value);
+	_outValue(str, &(node->val));
 	WRITE_LOCATION_FIELD(location);
 }
 
