@@ -504,6 +504,11 @@ extern PGDLLIMPORT Node *newNodeMacroHolder;
 extern char *nodeToString(const void *obj);
 
 /*
+* nodes/outfuncs_json.c
+*/
+extern char *nodeToJSONString(const void *obj);
+
+/*
  * nodes/{readfuncs.c,read.c}
  */
 extern void *stringToNode(char *str);
